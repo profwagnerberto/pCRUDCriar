@@ -3,8 +3,8 @@ package br.com.academico.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import br.com.academico.jdbc.FabricaDeConexoes;
 import br.com.academico.modelo.Aluno;
-import br.com.aluno.jdbc.FabricaDeConexoes;
 
 public class AlunoDAO {
   public void criar(Aluno pAluno) throws Exception {
@@ -21,5 +21,7 @@ public class AlunoDAO {
     stmt.setInt   (3, pAluno.getIdade());
     stmt.setDouble(4, pAluno.getAltura());
     stmt.execute();
+    
+    FabricaDeConexoes.encerrarRecursosBD(con, stmt);
   }
 }

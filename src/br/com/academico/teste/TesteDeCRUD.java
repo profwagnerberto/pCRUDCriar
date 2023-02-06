@@ -17,6 +17,7 @@ public class TesteDeCRUD {
       System.out.println("Aluno criado e preenchido");
 
       AlunoDAO alunoDAO1 = new AlunoDAO();
+      alunoDAO1.criar(aluno1);
       System.out.println("Inserido por objeto");
     } catch (Exception e) {
       System.err.println("Erro no banco de dados: " + "\n" + 

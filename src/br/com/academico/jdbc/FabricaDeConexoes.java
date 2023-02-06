@@ -1,7 +1,8 @@
-package br.com.aluno.jdbc;
+package br.com.academico.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class FabricaDeConexoes {
 
@@ -18,5 +19,11 @@ public class FabricaDeConexoes {
   public static void encerrarRecursosBD(Connection con) throws Exception {
     if (con != null)
       con.close();
+  }
+  
+  public static void encerrarRecursosBD(Connection con, Statement stmt) throws Exception {
+    encerrarRecursosBD(con);
+    if (stmt != null)
+      stmt.close();
   }
 }
